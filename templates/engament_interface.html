@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Engagement Detection</title>
+</head>
+<body>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Engagement Interface</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files 
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">-->
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body style="background-color:aliceblue">
+
+  <!-- ======= Header ======= -->
+  
+  <header id="header" class="fixed-top" style="background-color:black">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">HAPNIX</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        
+     
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </header>
+    <h1 style="text-align:center">Engagement Detection</h1>
+    <h1 style="text-align:center">Welcome to PRABHAT KASHYAP ^-^</h1>
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        #webcam-container {
+            width: 50%; /* Adjust the width as needed for the video */
+            text-align: center;
+        }
+
+        #content-container {
+            width: 50%; /* Adjust the width as needed for the content */
+            text-align: right;
+            padding-right: 20px; /* Add some padding to create space */
+        }
+
+        #webcam {
+            width: 100%;
+        }
+
+        #startButton,
+        #stopButton {
+            margin: 10px;
+        }
+
+        #content-container ol {
+            
+            padding: 20; /* Remove default list padding */
+        }
+
+        #content-container li {
+            margin-bottom: 25px; /* Add space between list items */
+            text-align: left;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #content-container li  {
+             
+            font-size: 18px;
+            color: #0077b6;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div id="webcam-container">
+            <!--<video id="webcam" autoplay></video>
+            <a id="startButton" class="get-started-btn">Start</a>
+            <a id="stopButton" class="get-started-btn">Stop</a>-->
+            <!-- Button to start analysis -->
+            <button id="startButton">Start Analysis</button>
+            <!-- Button to stop analysis -->
+            <button id="stopButton">Stop Analysis</button>
+            <a href="http://127.0.0.1:5005/templates/Email_Feedback.html" class="get-started-btn">Send Feadback to Student</a>
+            <div id="result"></div>
+            <b><p>Result Appears Below</p></b>
+            </div>
+
+        <div id="content-container">
+            <ol>
+                <li> Enhance e-learning experiences with real-time student engagement detection, harnessing the power of emotion analysis and eye tracking technology.</b></li>
+                <li>Classify the engagement level into three categories: "very engaged," "nominally engaged," and "not engaged at all."</b></li>
+                <li>Our objective is to use a ML model to find the distracted students and alert them likewise. We will have to get the input data from their video feed and then analyze our ML model and decide what to do.</b></li>
+                <li>The framework of the model is consisted of five different modules that include detection, feature extraction, tracking, classification, and decision.</b></li>
+                <li>The technique used to determine engagement includes Distraction Detector, Facial Emotion Recognition, and Engagement Classification.</b></li>
+            </ol>
+        </div>
+    </div>
+
+
+    <h3 style="text-align: center; color: red;">Real-Time Student Engagement Detection in e-learning environments using emotion analysis and eye tracking</h3>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        //const webcam = document.getElementById('webcam');
+        //const videoFeed = document.getElementById('webcam');
+
+
+        startButton.addEventListener('click', () => {
+            fetch('/video_feed?action=start');  // Send a request to start the model
+        });
+
+        stopButton.addEventListener('click', () => {
+            fetch('/video_feed?action=stop');  // Send a request to stop the model
+        });
+
+        // JavaScript code to update the webcam feed
+        /*document.addEventListener('DOMContentLoaded', async () => {
+            const updateVideoFeed = async () => {
+                const response = await fetch('/video_feed'); // Fetch the video feed from your Flask route
+        
+                if (response.ok) {
+                    videoFeed.src = response.url; // Update the <video> element with the new frame
+                }
+            };
+        
+            setInterval(updateVideoFeed, 500); // Update the video feed every 500 milliseconds
+        });
+        
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            webcam.srcObject = stream;
+        })
+        .catch(error => {
+            console.error('Error accessing webcam:', error);
+        });*/
+    </script>
+</body>
+</html>
